@@ -51,6 +51,7 @@ module Puppet
     parameter :remote
     parameter :upload
     property :stagingmode
+    property :prepare
 
     add_title_attributes(:deployment_name) do
       /^((.*?\/)?(.*)?)$/
