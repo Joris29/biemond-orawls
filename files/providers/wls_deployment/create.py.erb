@@ -31,40 +31,38 @@ try:
     else:
         uploadflag = 'false'
 
-    progress = None
+
     if prepare == '1':
         print 'preparing....'
-        progress = distributeApplication(localpath, targets=target)
+        distributeApplication(localpath, targets=target)
     else:
         print 'deploying....'
         if versionidentifier:
             if planpath:
                 print 'deploying with version and deploymentplan....'
                 if stagingmode:
-                    progress = deploy(appName=name, path=localpath, planPath=planpath, targets=target, stageMode=stagingmode, remote=remoteflag, upload=uploadflag, libraryModule=library, versionIdentifier=versionidentifier)
+                    deploy(appName=name, path=localpath, planPath=planpath, targets=target, stageMode=stagingmode, remote=remoteflag, upload=uploadflag, libraryModule=library, versionIdentifier=versionidentifier)
                 else:
-                    progress = deploy(appName=name, path=localpath, planPath=planpath, targets=target, remote=remoteflag, upload=uploadflag, libraryModule=library, versionIdentifier=versionidentifier)
+                    deploy(appName=name, path=localpath, planPath=planpath, targets=target, remote=remoteflag, upload=uploadflag, libraryModule=library, versionIdentifier=versionidentifier)
             else:
                 print 'deploying with version without deploymentplan....'
                 if stagingmode:
-                    progress = deploy(appName=name, path=localpath, targets=target, remote=remoteflag, stageMode=stagingmode, upload=uploadflag, libraryModule=library, versionIdentifier=versionidentifier)
+                    deploy(appName=name, path=localpath, targets=target, remote=remoteflag, stageMode=stagingmode, upload=uploadflag, libraryModule=library, versionIdentifier=versionidentifier)
                 else:
-                    progress = deploy(appName=name, path=localpath, targets=target, remote=remoteflag, upload=uploadflag, libraryModule=library, versionIdentifier=versionidentifier)
+                    deploy(appName=name, path=localpath, targets=target, remote=remoteflag, upload=uploadflag, libraryModule=library, versionIdentifier=versionidentifier)
         else:
             if planpath:
                 if stagingmode:
-                    progress = deploy(appName=name, path=localpath, planPath=planpath, targets=target, remote=remoteflag, stageMode=stagingmode, upload=uploadflag, libraryModule=library)
+                    deploy(appName=name, path=localpath, planPath=planpath, targets=target, remote=remoteflag, stageMode=stagingmode, upload=uploadflag, libraryModule=library)
                 else:
-                    progress = deploy(appName=name, path=localpath, planPath=planpath, targets=target, remote=remoteflag, upload=uploadflag, libraryModule=library)
+                    deploy(appName=name, path=localpath, planPath=planpath, targets=target, remote=remoteflag, upload=uploadflag, libraryModule=library)
             else:
                 if stagingmode:
-                    progress = deploy(appName=name, path=localpath, targets=target, remote=remoteflag, stageMode=stagingmode, upload=uploadflag, libraryModule=library)
+                    deploy(appName=name, path=localpath, targets=target, remote=remoteflag, stageMode=stagingmode, upload=uploadflag, libraryModule=library)
                 else:
-                    progress = deploy(appName=name, path=localpath, targets=target, remote=remoteflag, upload=uploadflag, libraryModule=library)
+                    deploy(appName=name, path=localpath, targets=target, remote=remoteflag, upload=uploadflag, libraryModule=library)
 
     report_back_success()
 
 except:
-    if progress:
-        progress.printStatus()
     report_back_error()
