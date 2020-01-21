@@ -15,7 +15,6 @@ stagingmode       = '<%= stagingmode %>'
 prepare           = '<%= prepare %>'
 
 try:
-
     if deploymenttype == 'Library':
         library = 'true'
     else:
@@ -62,7 +61,9 @@ try:
                 else:
                     deploy(appName=name, path=localpath, targets=target, remote=remoteflag, upload=uploadflag, libraryModule=library)
 
-    report_back_success()
+
+    print "success"
 
 except:
-    report_back_error()
+
+    print "failed"
