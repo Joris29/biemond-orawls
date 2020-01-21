@@ -14,9 +14,6 @@ upload            = '<%= upload %>'
 stagingmode       = '<%= stagingmode %>'
 prepare           = '<%= prepare %>'
 
-edit()
-startEdit()
-
 try:
 
     if deploymenttype == 'Library':
@@ -65,8 +62,6 @@ try:
                 else:
                     deploy(appName=name, path=localpath, targets=target, remote=remoteflag, upload=uploadflag, libraryModule=library)
 
-    save()
-    activate()
     report_back_success()
 
 except:
