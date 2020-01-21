@@ -62,8 +62,8 @@ try:
                     deploy(appName=name, path=localpath, targets=target, remote=remoteflag, upload=uploadflag, libraryModule=library)
 
 
-    print "success"
+    report_back_success()
 
 except:
 
-    print "failed"
+    report_back_error_without_undo()
